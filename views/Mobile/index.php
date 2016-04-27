@@ -52,7 +52,7 @@ $mobiles = $mobile->index();
                 <td><?php echo $slno; ?></td>
                 <td><a href="show.php?id=<?php echo $allmobile['id']; ?>"> <?php echo $allmobile['title']; ?> </a></td>
                 <td>
-                    <a href="edite.php?id=<?php echo $allmobile['id']; ?>">Edit</a> |
+                    <a href="edit.php?id=<?php echo $allmobile['id']; ?>">Edit</a> |
                     <a href="delete.php?id=<?php echo $allmobile['id']; ?>">Delete</a>
                     
                     <form action="delete.php" method="post">

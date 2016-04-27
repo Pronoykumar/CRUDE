@@ -45,4 +45,27 @@ class Mobile {
         return $_mobiles;
     }
     
+    public function show(){
+        $query = "SELECT * FROM `mobile` WHERE id = ".$this->id;
+        $result = mysql_query($query);
+        $_mobiles = mysql_fetch_object($result);
+        return $_mobiles;
+    }
+    
+    public function edit() {    
+        $query = $query = "SELECT * FROM `mobile` WHERE id = ".$this->id;
+        $result = mysql_query($query);
+        $mobiles = mysql_fetch_object($result);
+        return $mobiles;
+        
+    }
+    
+    public function update(){
+        $query = "UPDATE `atomicproject1`.`mobile` SET `title` = '".$this->title."' WHERE `mobile`.`id` =".$this->id;
+        if(mysql_query($query)){
+            echo "Update Sucessfully";
+        }else{
+            echo "Some error";
+        }
+    }
 }
