@@ -5,6 +5,8 @@ use App\Mobile\Mobile;
 
 $mobile = new Mobile();
 $themobile = $mobile->prepare($_GET)->edit();
+//var_dump($themobile);
+//die();
 
 ?>
 
@@ -12,7 +14,7 @@ $themobile = $mobile->prepare($_GET)->edit();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create an Item</title>
+    <title>Edit the Item</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"
     
@@ -24,6 +26,7 @@ $themobile = $mobile->prepare($_GET)->edit();
     <form action="update.php" method="post">
         <fieldset>
             <legend>Update Mobile Item</legend>
+            <input type="hidden" name="id" value="<?php echo $themobile->id;?>">
             
             <div>
                 <label for="title">Mobile Title</label>

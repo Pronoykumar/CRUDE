@@ -28,6 +28,7 @@ class Mobile {
         $query = "INSERT INTO `atomicproject1`.`mobile` (`id`, `title`, `created_at`) VALUES (NULL, '".$this->title."', '".date("Y-m-d H:i:s")."')";
         if(mysql_query($query)){
             echo "Mobile Model add Sucessfully";
+            header('location:index.php');
         }else{
             echo "Error";
         }
@@ -60,12 +61,24 @@ class Mobile {
         
     }
     
-    public function update(){
-        $query = "UPDATE `atomicproject1`.`mobile` SET `title` = '".$this->title."' WHERE `mobile`.`id` =".$this->id;
+   public function update($data = NULL) {
+        //session_start();
+        $query = "UPDATE `atomicproject1`.`mobile` SET `title` = '" . $data['title'] . "' WHERE `mobile`.`id` =" . $data['id'];
         if(mysql_query($query)){
-            echo "Update Sucessfully";
+            echo 'Data update sucessfully';
+            header('location:index.php');
         }else{
-            echo "Some error";
+            echo 'Error';
+        }
+    }
+    
+    public function delete(){
+        $query = "DELETE FROM `atomicproject1`.`mobile` WHERE id =".$this->id;
+        if(mysql_query($query)){
+            echo 'Data delete sucessull';
+            header('location:index.php');
+        }else{
+            echo error_reporting();
         }
     }
 }
