@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Mobile;
+namespace App\Mobile; 
+use App\Mobile\Message;
+
 
 class Mobile {
     public $id='';
@@ -27,21 +29,24 @@ class Mobile {
     public function store(){
         $query = "INSERT INTO `atomicproject1`.`mobile` (`id`, `title`, `created_at`) VALUES (NULL, '".$this->title."', '".date("Y-m-d H:i:s")."')";
         if(mysql_query($query)){
-            echo "Mobile Model add Sucessfully";
-            header('location:index.php');
+            Message::message("Mobile Model add Sucessfully");
         }else{
-            echo "Error";
+            Message::message("There is an error while storing mobile inormation, please try again");
         }
+        header('location:index.php');
     }
     
     public function index(){
         $_mobiles = array();
-        $query = "SELECT * FROM `mobile`";
+        $query = "SELECT * FROM `mobile` WHERE deleted_at IS NULL";
         $result = mysql_query($query);
         //echo $result;
+        //die();
         
         while($row = mysql_fetch_assoc($result)){
             $_mobiles[] = $row;
+            //var_dump($row);
+            //die();
         }
         return $_mobiles;
     }
@@ -65,20 +70,45 @@ class Mobile {
         //session_start();
         $query = "UPDATE `atomicproject1`.`mobile` SET `title` = '" . $data['title'] . "' WHERE `mobile`.`id` =" . $data['id'];
         if(mysql_query($query)){
-            echo 'Data update sucessfully';
-            header('location:index.php');
+            Message::message('Mobile data update successully');
         }else{
-            echo 'Error';
+            Message::message('There is an error while storing mobile inormation, please try again');
         }
+        header('location:index.php');
     }
     
     public function delete(){
         $query = "DELETE FROM `atomicproject1`.`mobile` WHERE id =".$this->id;
         if(mysql_query($query)){
-            echo 'Data delete sucessull';
-            header('location:index.php');
+            Message::message('Mobile data deleted successfully');
         }else{
-            echo error_reporting();
+            Message::message('There is an error while deleting mobile inormation, please try again');
         }
+        header('location:index.php');
+    }
+    
+    public function trash(){
+        $this->delete_at = time();
+        $query = "UPDATE `atomicproject1`.`mobile` SET `delete_at` = '".$this->delete_at."' WHERE `mobile`.`id` = ".$this->id;
+        
+        $result = mysql_query($query);
+        if($result){
+            Message::message("Mobile information has been trashed sucessfully");
+        }else{
+            Message::message("Cannot trash");
+        }
+        Utility::redirect;
+    }
+    
+    public function trashed(){
+        $_mobiles = array();
+        
+        $query = "SELECT * FROM `mobile` WHERE deleted_at IS NOT NULL";
+        $result = mysql_query($query);
+        
+        while ($row = mysql_fetch_assoc($result)){
+            $_mobiles[] = $row;
+        }
+        return $_mobiles;
     }
 }
