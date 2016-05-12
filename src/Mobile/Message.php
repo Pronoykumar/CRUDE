@@ -23,7 +23,7 @@ class Message{
     }
     
     static private function setMessage(){
-        $_SESSION['message'] = $message;
+        //$_SESSION['message'] = $message;
     }
             
 }

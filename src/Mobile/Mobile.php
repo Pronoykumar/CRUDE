@@ -97,7 +97,7 @@ class Mobile {
         }else{
             Message::message("Cannot trash");
         }
-        Utility::redirect;
+        header('location:index.php');
     }
     
     public function trashed(){
@@ -110,5 +110,16 @@ class Mobile {
             $_mobiles[] = $row;
         }
         return $_mobiles;
+    }
+    
+    public function recover(){
+        $query = "UPDATE `atomicproject1`.`mobile` SET `deleted_at` = NULL WHERE `mobile`.`id` =".$this->id;
+        $result = mysql_query($query);
+        if($result){
+            Message::message('Mobile data has been recoverd sucessfully.');
+        }  else {
+            Message::message('Cannot recoverd.');
+        }
+       header('location:index.php');
     }
 }
