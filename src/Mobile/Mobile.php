@@ -84,12 +84,12 @@ class Mobile {
         }else{
             Message::message('There is an error while deleting mobile inormation, please try again');
         }
-        header('location:index.php');
+        header('location:trashed.php');
     }
     
     public function trash(){
-        $this->delete_at = time();
-        $query = "UPDATE `atomicproject1`.`mobile` SET `delete_at` = '".$this->delete_at."' WHERE `mobile`.`id` = ".$this->id;
+        $this->deleted_at = time();
+        $query = "UPDATE `atomicproject1`.`mobile` SET `deleted_at` = '".$this->deleted_at."' WHERE `mobile`.`id` = ".$this->id;
         
         $result = mysql_query($query);
         if($result){
