@@ -68,7 +68,7 @@ class Mobile {
     
    public function update($data = NULL) {
         //session_start();
-        $query = "UPDATE `atomicproject1`.`mobile` SET `title` = '" . $data['title'] . "' WHERE `mobile`.`id` =" . $data['id'];
+        $query = "UPDATE `atomicproject1`.`mobile` SET `title` = '" . $data['title'] . "', `modified_at` = '".date("Y-m-d H:i:s")."' WHERE `mobile`.`id` =" . $data['id'];
         if(mysql_query($query)){
             Message::message('Mobile data update successully');
         }else{
@@ -88,7 +88,7 @@ class Mobile {
     }
     
     public function trash(){
-        $this->deleted_at = time();
+        $this->deleted_at = date("l jS \of F Y h:i:s A");
         $query = "UPDATE `atomicproject1`.`mobile` SET `deleted_at` = '".$this->deleted_at."' WHERE `mobile`.`id` = ".$this->id;
         
         $result = mysql_query($query);

@@ -3,10 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Hobbies/create.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Hobbies/index.php</file>
             <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/src/Mobile/Mobile.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Hobbies/edit.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/src/Hobby/Hobbies.php</file>
             <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Mobile/index.php</file>
             <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Mobile/trash.php</file>
-            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/src/Mobile/Message.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Hobbies/store.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/src/Hobby/Message.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Hobbies/update.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/index.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Hobbies/delete.php</file>
+            <file>file:/E:/Setup/New%20folder/xampp/htdocs/crudrsystem/views/Hobbies/show.php</file>
         </group>
     </open-files>
 </project-private>
